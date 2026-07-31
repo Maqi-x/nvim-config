@@ -1,0 +1,32 @@
+{
+  "ebcmd": {
+    "prefix": "ebcmd",
+    "body": [
+      "import { Command } from '@/bot/command.ts';",
+      "import { CommandFlags } from '@/bot/apis/commands/misc.ts';",
+      "",
+      "const ${1:name}Cmd: Command = {",
+      "    name: '${1:name}',",
+      "    aliases: [],",
+      "    description: {",
+      "        main: '${2:descmain}',",
+      "        short: '${3:descshort}',",
+      "    },",
+      "    flags: CommandFlags.None,",
+      "",
+      "    expectedArgs: [],",
+      "",
+      "    permissions: {",
+      "        allowedRoles: null,",
+      "        allowedUsers: null,",
+      "    },",
+      "",
+      "    async execute(api) {",
+      "        $0",
+      "    }",
+      "};",
+      "",
+      "export default ${1:name}Cmd;"
+    ]
+  }
+}

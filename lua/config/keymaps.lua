@@ -3,16 +3,18 @@ local map = vim.keymap.set
 map("n", "<C-s>", "<cmd>w<cr>", { silent = true })
 map("i", "<C-s>", "<esc><cmd>w<cr>a", { silent = true })
 
-map("n", "<A-j>", ":m .+1<CR>==", { silent = true })
-map("n", "<A-k>", ":m .-2<CR>==", { silent = true })
-map({ "v", "x" }, "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
-map({ "v", "x" }, "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
+map("n", "<A-j>", ":m .+1<cr>==", { silent = true })
+map("n", "<A-k>", ":m .-2<cr>==", { silent = true })
+map({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv", { silent = true })
+map({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv", { silent = true })
 
-map({ "v", "n", "i" }, "<C-h>", "<cmd>noh<CR>");
+map({ "v", "n", "i" }, "<C-h>", "<cmd>noh<cr>");
 
 map("n", "<leader>d", vim.diagnostic.setloclist)
 map("n", "<leader>D", "<cmd>Trouble diagnostics toggle<cr>")
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
+
+map("n", "<leader>n", "<cmd>noh<cr>")
 
 map("n", "<leader>l", function()
   local is_loclist_open = false

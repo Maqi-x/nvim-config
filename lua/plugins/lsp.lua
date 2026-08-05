@@ -157,6 +157,11 @@ return {
     },
 
     {
+      "davidmh/mdx.nvim",
+      dependencies = {"nvim-treesitter/nvim-treesitter"}
+    },
+
+    {
       "akinsho/flutter-tools.nvim",
       dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
       config = function()

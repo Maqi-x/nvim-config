@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.tmLanguage.json",
+  pattern = {"*.tmLanguage.json", "*.css"},
   callback = function()
     vim.bo.expandtab = true
     vim.bo.shiftwidth = 2

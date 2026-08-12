@@ -8,10 +8,11 @@ return {
             if not ok then return end
             configs.setup({
                 ensure_installed = {
-                    "c", "cpp", "commonlisp",
+                    "c", "cpp", "commonlisp", "python",
                     "typescript", "javascript", "json",
                     "lua", "markdown", "bash",
                 },
+                auto_install = true,
                 highlight = { enable = true },
                 indent = { enable = true },
             })

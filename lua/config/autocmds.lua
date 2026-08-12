@@ -5,6 +5,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        vim.treesitter.start()
+    end,
+})
+
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function()
@@ -27,7 +34,7 @@ vim.filetype.add({
   extension = {
     -- zp = "zap",
     -- zap = "zap",
-    em = "elash",
+    eu = "elash",
     eh = "elash",
     al = "alang",
     rux = "rux",

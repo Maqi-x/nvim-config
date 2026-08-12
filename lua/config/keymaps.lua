@@ -13,8 +13,8 @@ vim.keymap.set('n', '<Up>',   "v:count == 0 ? 'gk' : 'k'", { expr = true, silent
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'",      { expr = true, silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'",      { expr = true, silent = true })
 
-vim.keymap.set('i', '<Down>', '<C-o>gj', { noremap = true, silent = true })
-vim.keymap.set('i', '<Up>',   '<C-o>gk', { noremap = true, silent = true })
+vim.keymap.set('i', '<Down>', '<Cmd>normal! gj<CR>', { noremap = true, silent = true })
+vim.keymap.set('i', '<Up>',   '<Cmd>normal! gk<CR>', { noremap = true, silent = true })
 
 map({ "v", "n", "i" }, "<C-h>", "<cmd>noh<cr>");
 

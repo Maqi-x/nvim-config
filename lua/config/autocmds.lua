@@ -27,7 +27,7 @@ vim.filetype.add({
   extension = {
     -- zp = "zap",
     -- zap = "zap",
-    ei = "elash",
+    em = "elash",
     eh = "elash",
     al = "alang",
     rux = "rux",

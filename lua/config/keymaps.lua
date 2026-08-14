@@ -23,6 +23,7 @@ map("n", "<leader>D", "<cmd>Trouble diagnostics toggle<cr>")
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 
 map("n", "<leader>n", "<cmd>noh<cr>")
+map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
 
 map("n", "<leader>l", function()
   local is_loclist_open = false

@@ -1,4 +1,4 @@
 return {
-    "nvim-lua/plenary.nvim",
-    "dhruvasagar/vim-table-mode",
+  'nvim-lua/plenary.nvim',
+  'dhruvasagar/vim-table-mode',
 }

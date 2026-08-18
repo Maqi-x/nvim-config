@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = {"*.tmLanguage.json", "*.css"},
+  pattern = {"*.tmLanguage.json", "*.css", "*.zp"},
   callback = function()
     vim.bo.expandtab = true
     vim.bo.shiftwidth = 2
@@ -32,8 +32,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 vim.filetype.add({
   extension = {
-    -- zp = "zap",
-    -- zap = "zap",
+    zp = "zap",
     eu = "elash",
     eh = "elash",
     al = "alang",

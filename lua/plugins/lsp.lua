@@ -112,6 +112,14 @@ return {
                 },
             })
 
+            vim.lsp.config("zap-lsp", {
+                cmd = { "zap-lsp" },
+                filetypes = { "zap" },
+                root_markers = { ".git" },
+            })
+
+            vim.lsp.enable("zap-lsp")
+
             vim.api.nvim_create_autocmd("FileType", {
               pattern = "pascal",
               callback = function(args)

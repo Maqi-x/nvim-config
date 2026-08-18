@@ -18,12 +18,14 @@ vim.keymap.set('i', '<Up>',   '<Cmd>normal! gk<CR>', { noremap = true, silent = 
 
 map({ "v", "n", "i" }, "<C-h>", "<cmd>noh<cr>");
 
-map("n", "<leader>d", vim.diagnostic.setloclist)
+-- map("n", "<leader>d", vim.diagnostic.setloclist)
 map("n", "<leader>D", "<cmd>Trouble diagnostics toggle<cr>")
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 
 map("n", "<leader>n", "<cmd>noh<cr>")
 map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
+
+map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 
 map("n", "<leader>l", function()
   local is_loclist_open = false
@@ -72,7 +74,7 @@ vim.keymap.set("n", "[d", function()
   vim.diagnostic.jump({ count = -1, float = true })
 end)
 
-map("n", "<leader>g", function()
+map("n", "<leader>G", function()
   local pattern = vim.fn.input("Search: ")
   if pattern ~= "" then
     vim.cmd("silent! grep -F -g '!*.d' -g '!*.o' " .. vim.fn.shellescape(pattern))

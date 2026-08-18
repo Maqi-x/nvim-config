@@ -16,7 +16,7 @@ map('n', 'k',      "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('i', '<Down>', '<Cmd>normal! gj<CR>', { noremap = true, silent = true })
 map('i', '<Up>',   '<Cmd>normal! gk<CR>', { noremap = true, silent = true })
 
-map({ 'v', 'n', '' }, '<C-h>', '<cmd>noh<cr>');
+map({ 'v', 'n', 'i' }, '<C-h>', '<cmd>noh<cr>');
 
 -- map('n', '<leader>d', vim.diagnostic.setloclist)
 map('n', '<leader>D',  '<cmd>Trouble diagnostics toggle<cr>')
@@ -26,6 +26,7 @@ map("n", '<leader>e',  '<cmd>NvimTreeToggle<cr>', { silent = true })
 map('n', '<leader>n', '<cmd>noh<cr>')
 map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
 
+map('n', '<leader>p', '<cmd>Telescope find_files<CR>', { silent = true })
 map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 
 map('n', '<leader>l', function()

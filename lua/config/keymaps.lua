@@ -29,6 +29,8 @@ map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 
 map('n', '<M-f>', '<cmd>Telescope lsp_references<cr>')
 map('n', '<M-d>', '<cmd>Telescope lsp_definitions<cr>')
+map('n', '<M-i>', '<cmd>Telescope lsp_implementations<cr>')
+map('n', '<M-t>', '<cmd>Telescope lsp_type_definitions<cr>')
 
 map('n', '<M-g>', '<cmd>Neogit<cr>',                { silent = true })
 map('n', '<M-e>', '<cmd>DiffviewOpen --staged<cr>', { silent = true })
@@ -73,7 +75,7 @@ map('n', '<leader>P', function()
   end, 200)
 end)
 
-map('n', '<leader>e', vim.diagnostic.open_float)
+map('n', '<leader>f', vim.diagnostic.open_float)
 map('n', ']d', function()
   vim.diagnostic.jump({ count = 1, float = true })
 end)

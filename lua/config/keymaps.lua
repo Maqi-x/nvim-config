@@ -16,12 +16,10 @@ map('n', 'k',      "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('i', '<Down>', '<Cmd>normal! gj<cr>', { noremap = true, silent = true })
 map('i', '<Up>',   '<Cmd>normal! gk<cr>', { noremap = true, silent = true })
 
-map({ 'v', 'n', 'i' }, '<C-h>', '<cmd>noh<cr>');
-
 -- map('n', '<leader>d', vim.diagnostic.setloclist)
 map('n', '<leader>D',  '<cmd>Trouble diagnostics toggle<cr>')
 map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
-map("n", '<leader>e',  '<cmd>NvimTreeToggle<cr>', { silent = true })
+map('n', '<leader>e',  '<cmd>NvimTreeToggle<cr>', { silent = true })
 
 map('n', '<leader>n', '<cmd>noh<cr>')
 map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
@@ -31,6 +29,10 @@ map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 
 map('n', '<M-f>', '<cmd>Telescope lsp_references<cr>')
 map('n', '<M-d>', '<cmd>Telescope lsp_definitions<cr>')
+
+map('n', '<M-g>', '<cmd>Neogit<cr>',                { silent = true })
+map('n', '<M-e>', '<cmd>DiffviewOpen --staged<cr>', { silent = true })
+map('n', '<M-w>', '<cmd>DiffviewOpen<cr>',          { silent = true })
 
 map('n', '<leader>l', function()
   local is_loclist_open = false

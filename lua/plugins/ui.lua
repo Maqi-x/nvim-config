@@ -37,7 +37,17 @@ return {
     },
     config = function()
       require('neogit').setup({
-        kind = 'floating'
+        --kind = 'floating'
+      })
+      require('diffview').setup({
+        keymaps = {
+          view = {
+            { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } },
+          },
+          file_panel = {
+            { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } },
+          },
+        },
       })
     end,
   },

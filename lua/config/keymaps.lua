@@ -13,8 +13,8 @@ map('n', '<Up>',   "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j',      "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map('n', 'k',      "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
-map('i', '<Down>', '<Cmd>normal! gj<CR>', { noremap = true, silent = true })
-map('i', '<Up>',   '<Cmd>normal! gk<CR>', { noremap = true, silent = true })
+map('i', '<Down>', '<Cmd>normal! gj<cr>', { noremap = true, silent = true })
+map('i', '<Up>',   '<Cmd>normal! gk<cr>', { noremap = true, silent = true })
 
 map({ 'v', 'n', 'i' }, '<C-h>', '<cmd>noh<cr>');
 
@@ -26,8 +26,11 @@ map("n", '<leader>e',  '<cmd>NvimTreeToggle<cr>', { silent = true })
 map('n', '<leader>n', '<cmd>noh<cr>')
 map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
 
-map('n', '<leader>p', '<cmd>Telescope find_files<CR>', { silent = true })
+map('n', '<leader>p', '<cmd>Telescope find_files<cr>', { silent = true })
 map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
+
+map('n', '<M-f>', '<cmd>Telescope lsp_references<cr>')
+map('n', '<M-d>', '<cmd>Telescope lsp_definitions<cr>')
 
 map('n', '<leader>l', function()
   local is_loclist_open = false

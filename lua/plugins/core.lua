@@ -14,6 +14,14 @@ return {
         pad_horiz = 20,
         pad_vert = 20,
 
+        language = function()
+          if vim.bo.filetype == "elash" then
+            return "c"
+          end
+
+          return vim.bo.filetype
+        end,
+
         line_offset = function(args)
           return args.line1
         end,

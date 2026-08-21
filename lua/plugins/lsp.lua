@@ -12,7 +12,6 @@ return {
     config = function()
       require('mason-lspconfig').setup({
         ensure_installed = {
-          'gopls',
           'clangd',
           'pyright',
           'rust_analyzer',

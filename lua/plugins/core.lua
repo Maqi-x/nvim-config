@@ -3,6 +3,27 @@ return {
   'dhruvasagar/vim-table-mode',
 
   {
+    'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
+    opts = {
+      default_file_explorer = true,
+      delete_to_trash = true,
+      columns = { 'icon' },
+      view_options = {
+        show_hidden = true,
+      },
+      keymaps = {
+        ["q"] = "actions.parent",
+        ["<Esc>"] = "actions.close",
+      },
+    },
+    keys = {
+      { '-', '<cmd>Oil<cr>' },
+    },
+  },
+
+  {
     "michaelrommel/nvim-silicon",
     lazy = true,
     cmd = "Silicon",

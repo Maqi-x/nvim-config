@@ -19,7 +19,6 @@ map('i', '<Up>',   '<Cmd>normal! gk<cr>', { noremap = true, silent = true })
 -- map('n', '<leader>d', vim.diagnostic.setloclist)
 map('n', '<leader>D',  '<cmd>Trouble diagnostics toggle<cr>')
 map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
-map('n', '<leader>e',  '<cmd>NvimTreeToggle<cr>', { silent = true })
 
 map('n', '<leader>n', '<cmd>noh<cr>')
 map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')

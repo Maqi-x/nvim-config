@@ -1,19 +1,5 @@
 return {
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('nvim-tree').setup({
-        view = { width = 30, side = 'left' },
-        update_focused_file = { enable = true },
-        filters = { dotfiles = false },
-        git = { ignore = false },
-        actions = { open_file = { quit_on_open = false } },
-      })
-    end,
-  },
-
-  {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()

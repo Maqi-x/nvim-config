@@ -26,6 +26,8 @@ map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
 map('n', '<leader>p', '<cmd>Telescope find_files<cr>', { silent = true })
 map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 
+map({ 'n', 'i', 'v' }, '<A-q>', '<cmd>wqa<cr>')
+
 map('n', '<A-f>', '<cmd>Telescope lsp_references<cr>')
 map('n', '<A-d>', '<cmd>Telescope lsp_definitions<cr>')
 map('n', '<A-i>', '<cmd>Telescope lsp_implementations<cr>')

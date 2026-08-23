@@ -26,14 +26,14 @@ map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
 map('n', '<leader>p', '<cmd>Telescope find_files<cr>', { silent = true })
 map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 
-map('n', '<M-f>', '<cmd>Telescope lsp_references<cr>')
-map('n', '<M-d>', '<cmd>Telescope lsp_definitions<cr>')
-map('n', '<M-i>', '<cmd>Telescope lsp_implementations<cr>')
-map('n', '<M-t>', '<cmd>Telescope lsp_type_definitions<cr>')
+map('n', '<A-f>', '<cmd>Telescope lsp_references<cr>')
+map('n', '<A-d>', '<cmd>Telescope lsp_definitions<cr>')
+map('n', '<A-i>', '<cmd>Telescope lsp_implementations<cr>')
+map('n', '<A-t>', '<cmd>Telescope lsp_type_definitions<cr>')
 
-map('n', '<M-g>', '<cmd>Neogit<cr>',                { silent = true })
-map('n', '<M-e>', '<cmd>DiffviewOpen --staged<cr>', { silent = true })
-map('n', '<M-w>', '<cmd>DiffviewOpen<cr>',          { silent = true })
+map('n', '<A-g>', '<cmd>Neogit<cr>',                { silent = true })
+map('n', '<A-e>', '<cmd>DiffviewOpen --staged<cr>', { silent = true })
+map('n', '<A-w>', '<cmd>DiffviewOpen<cr>',          { silent = true })
 
 map('n', '<leader>l', function()
   local is_loclist_open = false

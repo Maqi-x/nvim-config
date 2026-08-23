@@ -52,7 +52,7 @@ return {
     end,
     keys = {
       {
-        "<M-s>",
+        "<A-s>",
         function()
           require("nvim-silicon").clip()
         end,

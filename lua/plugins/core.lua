@@ -3,23 +3,52 @@ return {
   'dhruvasagar/vim-table-mode',
 
   {
-    'stevearc/oil.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
     lazy = false,
     opts = {
-      default_file_explorer = true,
-      delete_to_trash = true,
-      columns = { 'icon' },
-      view_options = {
-        show_hidden = true,
+      hijack_netrw = true,
+      disable_netrw = true,
+      hijack_cursor = true,
+      sync_root_with_cwd = true,
+      view = {
+        float = {
+          enable = true,
+          quit_on_focus_loss = true,
+          open_win_config = function()
+            local screen_w = vim.opt.columns:get()
+            local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+            local window_w = math.floor(screen_w * 0.8)
+            local window_h = math.floor(screen_h * 0.8)
+            return {
+              border = 'rounded',
+              relative = 'editor',
+              row = math.floor((screen_h - window_h) / 2),
+              col = math.floor((screen_w - window_w) / 2),
+              width = window_w,
+              height = window_h,
+            }
+          end,
+        },
       },
-      keymaps = {
-        ["q"] = "actions.parent",
-        ["<Esc>"] = "actions.close",
+      renderer = {
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = false,
+            git = true,
+          },
+        },
+      },
+      filters = {
+        dotfiles = false,
       },
     },
     keys = {
-      { '-', '<cmd>Oil<cr>' },
+      { '-', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle Floating NvimTree' },
     },
   },
 

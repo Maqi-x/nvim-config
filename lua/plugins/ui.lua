@@ -56,10 +56,17 @@ return {
     'navarasu/onedark.nvim',
     lazy = false,
     priority = 1000,
-    config = function()
-      require('onedark').setup({
-        style = 'darker',
-      })
+    opts = {
+      highlights = {
+        Normal = { bg = '$bg_d' },
+        NormalNC = { bg = '$bg_d' },
+        FloatBorder = { bg = '$bg_d' },
+        NvimTreeFloatBorder = { bg = '$bg_d' },
+      },
+      style = 'darker',
+    },
+    config = function(_, opts)
+      require('onedark').setup(opts)
       require('onedark').load()
     end,
   },

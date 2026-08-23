@@ -21,6 +21,7 @@ map('n', '<leader>D',  '<cmd>Trouble diagnostics toggle<cr>')
 map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
 
 map('n', '<leader>n', '<cmd>noh<cr>')
+map('n', '<leader>rn', vim.lsp.buf.rename)
 map('n', '<leader>d', '<cmd>ClangdSwitchSourceHeader<cr>')
 
 map('n', '<leader>p', '<cmd>Telescope find_files<cr>', { silent = true })

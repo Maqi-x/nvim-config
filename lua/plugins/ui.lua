@@ -60,6 +60,7 @@ return {
       highlights = {
         Normal = { bg = '$bg_d' },
         NormalNC = { bg = '$bg_d' },
+        EndOfBuffer = { bg = '$bg_d' },
         FloatBorder = { bg = '$bg_d' },
         NvimTreeFloatBorder = { bg = '$bg_d' },
       },

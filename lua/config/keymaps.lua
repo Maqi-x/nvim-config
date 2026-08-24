@@ -1,8 +1,5 @@
 local map = vim.keymap.set
 
-map('n', '<C-s>', '<cmd>w<cr>', { silent = true })
-map('i', '<C-s>', '<esc><cmd>w<cr>a', { silent = true })
-
 map('n', '<A-j>', ':m .+1<cr>==', { silent = true })
 map('n', '<A-k>', ':m .-2<cr>==', { silent = true })
 map({ 'v', 'x' }, '<A-j>', ":m '>+1<cr>gv=gv", { silent = true })

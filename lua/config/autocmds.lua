@@ -7,13 +7,6 @@ autocmd('FileType', {
   end,
 })
 
-autocmd('FileType', {
-  pattern = 'python',
-  callback = function()
-    vim.treesitter.start()
-  end,
-})
-
 autocmd('BufWritePre', {
   pattern = '*',
   callback = function()

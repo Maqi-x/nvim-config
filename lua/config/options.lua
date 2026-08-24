@@ -2,7 +2,6 @@ vim.opt.mouse = ""
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.termguicolors = true
-vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -14,6 +13,7 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.smartindent = true
 vim.opt.breakindent = true
 
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 vim.g.mapleader = " "

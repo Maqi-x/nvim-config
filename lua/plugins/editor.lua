@@ -1,22 +1,18 @@
 return {
   {
     'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup({
-        disable_filetype = { 'TelescopePrompt' },
-        check_ts = true,
-      })
-    end,
-  },
-
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
+    opts = {
+      disable_filetype = { 'TelescopePrompt' },
+      check_ts = true,
+    },
   },
 
   'mg979/vim-visual-multi',
+
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
 
   {
     'folke/trouble.nvim',
@@ -24,18 +20,16 @@ return {
   },
 
   {
-    'junegunn/vim-easy-align',
-    lazy = false,
-    keys = {
-    { 'ga', '<Plug>(EasyAlign)', mode = { 'n', 'x' } },
-    },
+    'lewis6991/gitsigns.nvim',
+    opts = {},
   },
 
   {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end,
+    'junegunn/vim-easy-align',
+    lazy = false,
+    keys = {
+      { 'ga', '<Plug>(EasyAlign)', mode = { 'n', 'x' } },
+    },
   },
 
   {

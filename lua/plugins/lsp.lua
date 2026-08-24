@@ -1,27 +1,23 @@
 return {
   {
     'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup()
-    end,
+    opts = {},
   },
 
   {
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'mason.nvim' },
-    config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'clangd',
-          'pyright',
-          'rust_analyzer',
-          'lua_ls',
-          'ts_ls',
-          'denols',
-          'bashls',
-        },
-      })
-    end,
+    opts = {
+      ensure_installed = {
+        'clangd',
+        'pyright',
+        'rust_analyzer',
+        'lua_ls',
+        'ts_ls',
+        'denols',
+        'bashls',
+      },
+    },
   },
 
   {
@@ -165,44 +161,42 @@ return {
 
   {
     'p00f/clangd_extensions.nvim',
-    config = function()
-      require('clangd_extensions').setup()
-    end,
+    config = true,
   },
 
   {
     'davidmh/mdx.nvim',
-    dependencies = {'nvim-treesitter/nvim-treesitter'}
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter'
+    },
   },
 
   {
     'akinsho/flutter-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'mfussenegger/nvim-dap' },
-    config = function()
-      require('flutter-tools').setup({
-        flutter_path = '/usr/bin/flutter',
-        dart_path = '/usr/bin/dart',
-        widget_guides = {
-          enabled = true,
-        },
-        dev_log = {
-          enabled = true,
-          open_cmd = 'tabedit',
-        },
-        lsp = {
-          color = { enabled = true },
-          on_attach = function(_, bufnr)
-            local bufopts = { noremap=true, silent=true, buffer=bufnr }
-            vim.keymap.set('n', '<leader>rf', '<cmd>FlutterReload<CR>', bufopts)
-            vim.keymap.set('n', '<leader>rh', '<cmd>FlutterRestart<CR>', bufopts)
-          end,
-          capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        },
-        debugger = {
-          enabled = true,
-          run_via_dap = true,
-        },
-      })
-    end
+    opts = {
+      flutter_path = '/usr/bin/flutter',
+      dart_path = '/usr/bin/dart',
+      widget_guides = {
+        enabled = true,
+      },
+      dev_log = {
+        enabled = true,
+        open_cmd = 'tabedit',
+      },
+      lsp = {
+        color = { enabled = true },
+        on_attach = function(_, bufnr)
+          local bufopts = { noremap=true, silent=true, buffer=bufnr }
+          vim.keymap.set('n', '<leader>rf', '<cmd>FlutterReload<CR>', bufopts)
+          vim.keymap.set('n', '<leader>rh', '<cmd>FlutterRestart<CR>', bufopts)
+        end,
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      },
+      debugger = {
+        enabled = true,
+        run_via_dap = true,
+      },
+    },
   },
 }

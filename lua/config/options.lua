@@ -1,5 +1,6 @@
 vim.opt.mouse = ""
 vim.opt.clipboard = "unnamedplus"
+vim.opt.inccommand = "split"
 
 vim.opt.termguicolors = true
 

@@ -3,7 +3,7 @@ if exists("b:current_syn")
 endif
 
 """""""""""""""""""" Keywords
-syn keyword elashKeyword extern static inline goto case const wonly volatile as global internal
+syn keyword elashKeyword extern static inline goto case const wonly volatile as bitcast internal
 syn keyword elashTypedefKeyword enum union struct typedef alias
 syn keyword elashControlFlowKw switch if else while do for break continue return
 syn keyword elashBoolean true false

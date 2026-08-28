@@ -3,6 +3,11 @@ return {
   'dhruvasagar/vim-table-mode',
 
   {
+    'MagicDuck/grug-far.nvim',
+    opts = {},
+  },
+
+  {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
@@ -86,5 +91,5 @@ return {
         mode = { 'n', 'v' },
       },
     },
-  }
+  },
 }

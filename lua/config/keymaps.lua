@@ -35,6 +35,9 @@ map('n', '<A-g>', '<cmd>Neogit<cr>',                { silent = true })
 map('n', '<A-e>', '<cmd>DiffviewOpen --staged<cr>', { silent = true })
 map('n', '<A-w>', '<cmd>DiffviewOpen<cr>',          { silent = true })
 
+map({ 'n', 'v' }, '<A-d>', '"_d', { silent = true })
+map({ 'n', 'v' }, '<A-c>', '"_c', { silent = true })
+
 map('n', '<leader>l', function()
   local is_loclist_open = false
   for _, win in ipairs(vim.fn.getwininfo()) do

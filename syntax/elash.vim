@@ -19,8 +19,8 @@ syn keyword elashPPKeyword if elif else endif while endwhile for foreach endfor 
 """""""""""""""""""" Literals
 syn match  elashEscape /\\./ contained
 syn region elashString start=/"/ skip=/\\"/ end=/"/ contains=elashEscape
+syn match  elashNumber /\v<(0[xX][0-9a-fA-F]+(\'[0-9a-fA-F]+)*|0[oO][0-7]+(\'[0-7]+)*|0[bB][01]+(\'[01]+)*|\d+(\'\d+)*(\.\d+(\'\d+)*)?([eE][+-]?\d+(\'\d+)*)?)/
 syn region elashChar start=/'/ skip=/\\'/ end=/'/ contains=elashEscape
-syn match  elashNumber /\v<\d+(\.\d+)?>/
 
 """""""""""""""""""" Comments
 syn match  elashComment /\/\/.*/

@@ -38,6 +38,8 @@ map('n', '<A-w>', '<cmd>DiffviewOpen<cr>',          { silent = true })
 map({ 'n', 'v' }, '<A-d>', '"_d', { silent = true })
 map({ 'n', 'v' }, '<A-c>', '"_c', { silent = true })
 
+map("n", "<A-m>", "<cmd>make<CR>")
+
 map('n', '<leader>l', function()
   local is_loclist_open = false
   for _, win in ipairs(vim.fn.getwininfo()) do

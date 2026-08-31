@@ -51,6 +51,10 @@ return {
       filters = {
         dotfiles = false,
       },
+      update_focused_file = {
+        enable = true,
+        --update_root = true,
+      },
     },
     keys = {
       { '-', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle Floating NvimTree' },

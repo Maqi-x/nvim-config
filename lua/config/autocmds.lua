@@ -38,6 +38,7 @@ vim.filetype.add({
   },
 })
 
+-- lua sucks
 local function remove_suffix(str, suffix)
   if str:sub(-#suffix) == suffix then
     return str:sub(1, -#suffix - 1)
@@ -58,14 +59,7 @@ vim.diagnostic.config({
     end,
     source = 'if_many',
     format = function(d)
-      if not d.source then
-        return remove_suffix(d.message, '.')
-      end
-      return string.format(
-        '%s: %s',
-        remove_suffix(d.source, '.'),
-        remove_suffix(d.message, '.')
-      )
+      return remove_suffix(d.message, '.')
     end,
   },
   signs = true,

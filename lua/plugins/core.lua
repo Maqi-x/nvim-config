@@ -50,6 +50,12 @@ return {
       },
       filters = {
         dotfiles = false,
+        git_ignored = false,
+        git_clean = false,
+
+        custom = {
+          '^\\.git'
+        },
       },
       update_focused_file = {
         enable = true,

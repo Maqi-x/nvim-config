@@ -14,6 +14,7 @@ return {
         'rust_analyzer',
         'lua_ls',
         'ts_ls',
+        'cssls',
         'denols',
         'bashls',
       },
@@ -84,6 +85,11 @@ return {
       })
 
       vim.lsp.config('eslint', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      vim.lsp.config('cssls', {
         capabilities = capabilities,
         on_attach = on_attach,
       })

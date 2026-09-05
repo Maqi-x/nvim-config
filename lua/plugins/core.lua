@@ -54,7 +54,7 @@ return {
         git_clean = false,
 
         custom = {
-          '^\\.git'
+          '^\\.git$'
         },
       },
       update_focused_file = {

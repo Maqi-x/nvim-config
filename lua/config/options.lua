@@ -17,4 +17,7 @@ vim.opt.breakindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo//"
+
 vim.g.mapleader = " "

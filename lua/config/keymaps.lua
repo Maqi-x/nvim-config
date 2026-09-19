@@ -141,3 +141,23 @@ map('n', '<leader>T', function()
     open_floating_terminal(cmd)
   end
 end)
+
+map('n', '<A-l>', function()
+  local cmd = "run-clang-tidy -p . -header-filter='.*' -quiet 2>/dev/null"
+  local output = vim.fn.systemlist(cmd)
+
+  vim.fn.setqflist({}, ' ', { title = 'clang-tidy', lines = output })
+
+  local qf = vim.fn.getqflist()
+  local filtered = vim.tbl_filter(function(item)
+    local fname = item.bufnr > 0 and vim.api.nvim_buf_get_name(item.bufnr) or ""
+
+    return item.valid == 1
+      and not item.text:match("note:")
+      and not fname:match("tests/")
+      and not fname:match("/usr/include")
+  end, qf)
+
+  vim.fn.setqflist(filtered, 'r')
+  vim.cmd('copen')
+end)

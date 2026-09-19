@@ -10,10 +10,9 @@ map('n', '<Up>',   "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j',      "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map('n', 'k',      "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
-map('i', '<Down>', '<Cmd>normal! gj<cr>', { noremap = true, silent = true })
-map('i', '<Up>',   '<Cmd>normal! gk<cr>', { noremap = true, silent = true })
+map('i', '<Down>', '<cmd>normal! gj<cr>', { noremap = true, silent = true })
+map('i', '<Up>',   '<cmd>normal! gk<cr>', { noremap = true, silent = true })
 
--- map('n', '<leader>d', vim.diagnostic.setloclist)
 map('n', '<leader>D',  '<cmd>Trouble diagnostics toggle<cr>')
 map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
 
@@ -40,6 +39,19 @@ map({ 'n', 'v' }, '<A-c>', '"_c', { silent = true })
 
 map('n', '<A-m>', '<cmd>make<cr>')
 map('n', '<A-r>', '<cmd>GrugFar<cr>', { silent = true })
+
+vim.keymap.set("x", "<leader>m", ":EasyAlign /\\\\/<CR>")
+vim.keymap.set("n", "<leader>m", function()
+  local s, e = vim.fn.line("."), vim.fn.line(".")
+
+  while vim.fn.getline(s - 1):match("\\%s*$") do s = s - 1 end
+  if not vim.fn.getline(s):match("^%s*#%s*define") then
+    return vim.notify("Not in a C macro", vim.log.levels.ERROR)
+  end
+  while vim.fn.getline(e):match("\\%s*$") do e = e + 1 end
+
+  vim.cmd(string.format("%d,%dEasyAlign /\\\\/", s, e))
+end, { desc = "Align macro backslashes" })
 
 map('n', '<leader>l', function()
   local is_loclist_open = false

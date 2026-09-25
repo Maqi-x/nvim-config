@@ -2,6 +2,7 @@
 require('config.options')
 require('config.keymaps')
 require('config.autocmds')
+require('config.functions')
 
 -- local configuration
 pcall(require, 'local.init')

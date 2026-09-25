@@ -191,7 +191,7 @@ return {
         open_cmd = 'tabedit',
       },
       lsp = {
-        color = { enabled = true },
+        color = { enabled = false },
         on_attach = function(_, bufnr)
           local bufopts = { noremap=true, silent=true, buffer=bufnr }
           vim.keymap.set('n', '<leader>rf', '<cmd>FlutterReload<CR>', bufopts)

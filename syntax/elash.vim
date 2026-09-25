@@ -24,7 +24,7 @@ syn region elashChar start=/'/ skip=/\\'/ end=/'/ contains=elashEscape
 
 """""""""""""""""""" Comments
 syn match  elashComment /\/\/.*/
-syn region elashComment start=/\/\*/ end=/\*\//
+syn region elashComment start=/\/\[/ end=/\]\//
 
 """""""""""""""""""" Types
 syn keyword elashType int int8 int16 int32 int64 int128

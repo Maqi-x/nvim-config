@@ -25,6 +25,7 @@ autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
+vim.treesitter.language.register('markdown', 'post')
 vim.filetype.add({
   extension = {
     zp = 'zap',
@@ -34,6 +35,7 @@ vim.filetype.add({
     rux = 'rux',
     tasm = 'tasm',
     htpl = 'html',
+    post = 'post',
     b = 'b',
   },
 })

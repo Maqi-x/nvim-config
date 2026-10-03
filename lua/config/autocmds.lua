@@ -17,7 +17,11 @@ autocmd('BufWritePre', {
 })
 
 autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = {'*.tmLanguage.json', '*.css', '*.zp', '*.lua'},
+  pattern = {
+    '*.tmLanguage.json',
+    '*.html', '*.css',
+    '*.zp', '*.lua',
+  },
   callback = function()
     vim.bo.expandtab = true
     vim.bo.shiftwidth = 2

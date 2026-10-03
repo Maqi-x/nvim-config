@@ -41,6 +41,14 @@ vim.filetype.add({
     htpl = 'html',
     post = 'post',
     b = 'b',
+
+    yate = function(path, _)
+      local base_ext = path:match("%.([%w_]+)%.yate$")
+      if base_ext then
+        return base_ext .. '.yate'
+      end
+      return 'yate'
+    end,
   },
 })
 

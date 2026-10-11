@@ -1,0 +1,79 @@
+if exists("b:current_syntax")
+  finish
+endif
+
+syn case match
+
+"""""""""""""""""""" Comments
+syn region squirrelComment start="/\*" end="\*/" contains=squirrelTodo,@Spell
+syn match  squirrelComment "//.*$"
+
+syn keyword squirrelTodo TODO FIXME XXX contained
+
+"""""""""""""""""""" Strings
+syn region squirrelString start=+"+ skip=+\\."+ end=+"+
+syn region squirrelString start=+'+ skip=+\\.'+ end=+'+
+
+"""""""""""""""""""" Keywords
+syn keyword squirrelKeyword
+      \ break case catch class clone continue const default delete
+      \ else enum extends for foreach function if in local null
+      \ return switch this throw try typeof while yield resume wait
+      \ base global struct enum
+
+"""""""""""""""""""" Types
+syn keyword squirrelType entity vector int float string bool array table void var
+
+"""""""""""""""""""" Literals
+syn keyword squirrelBoolean true false
+syn keyword squirrelNull null
+
+"""""""""""""""""""" Constants
+syn match squirrelConstant "\<[A-Z_][A-Z0-9_]*\>"
+
+"""""""""""""""""""" Numbers
+syn match squirrelHex   "\<0x[0-9A-Fa-f]\+\>"
+syn match squirrelFloat "\<\d\+\.\d\+\([eE][+-]\?\d\+\)\?\>"
+syn match squirrelNumber "\<\d\+\>"
+
+"""""""""""""""""""" Operators
+syn match squirrelOperator "[+\-*%=&|!<>]=\?"
+syn match squirrelOperator "||\|&&"
+
+"""""""""""""""""""" Member access
+syn match squirrelDot "\."
+
+"""""""""""""""""""" Function calls
+syn match squirrelFunction "\v<[A-Za-z_][A-Za-z0-9_]*\ze\s*\("
+
+"""""""""""""""""""" Method calls
+syn match squirrelMethod "\v\.\zs[A-Za-z_][A-Za-z0-9_]*\ze\s*\("
+
+"""""""""""""""""""" Property access
+syn match squirrelProperty "\v\.\zs[A-Za-z_][A-Za-z0-9_]*"
+
+"""""""""""""""""""" Highlight links
+hi def link squirrelComment   Comment
+hi def link squirrelTodo      Todo
+
+hi def link squirrelString    String
+
+hi def link squirrelKeyword   Keyword
+hi def link squirrelType      Type
+hi def link squirrelBoolean   Boolean
+hi def link squirrelNull      Constant
+
+hi def link squirrelConstant  Macro
+
+hi def link squirrelNumber    Number
+hi def link squirrelFloat     Float
+hi def link squirrelHex       Number
+
+hi def link squirrelOperator  Operator
+hi def link squirrelDot       Delimiter
+
+hi def link squirrelFunction  Function
+hi def link squirrelMethod    Function
+hi def link squirrelProperty  Identifier
+
+let b:current_syntax = "rsquirrel"

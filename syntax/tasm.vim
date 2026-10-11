@@ -3,7 +3,7 @@ if exists("b:current_syntax")
 endif
 
 
-" --- Keywords & Opcodes ---
+"""""""""""""""""""" Keywords & Opcodes
 syn case ignore
 syn keyword tasmKeyword     if
 syn keyword tasmRegister    raz rcf rip rsp

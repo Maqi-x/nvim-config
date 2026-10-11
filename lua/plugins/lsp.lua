@@ -1,3 +1,5 @@
+local util = require('util')
+
 return {
   {
     'williamboman/mason.nvim',
@@ -8,15 +10,15 @@ return {
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'mason.nvim' },
     opts = {
-      ensure_installed = {
+      ensure_installed = util.compact{
         'clangd',
-        'pyright',
         'rust_analyzer',
         'lua_ls',
-        'ts_ls',
-        'cssls',
         'denols',
-        'bashls',
+        util.when(not util.windows, 'pyright'),
+        util.when(not util.windows, 'ts_ls'),
+        util.when(not util.windows, 'cssls'),
+        util.when(not util.windows, 'bashls'),
       },
     },
   },
@@ -48,29 +50,42 @@ return {
           'clangd',
           '--background-index',
           '--clang-tidy',
-          '--header-insertion=never',
-          '--query-driver=' .. os.getenv('HOME') .. '/.platformio/packages/toolchain-xtensa-esp32s3/bin/*',
           '--all-scopes-completion',
           '--completion-style=detailed',
         },
       })
 
-      vim.lsp.config('bashls', {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      if not util.windows then
+        vim.lsp.config('bashls', {
+          capabilities = capabilities,
+          on_attach = on_attach,
+        })
 
-      vim.lsp.config('pyright', {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-          python = {
-            analysis = {
-              diagnosticMode = 'workspace',
+        vim.lsp.config('pyright', {
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = {
+            python = {
+              analysis = {
+                diagnosticMode = 'workspace',
+              },
             },
           },
-        },
-      })
+        })
+
+        vim.lsp.config('cssls', {
+          capabilities = capabilities,
+          on_attach = on_attach,
+        })
+
+        vim.lsp.config('zap-lsp', {
+          cmd = { 'zap-lsp' },
+          filetypes = { 'zap' },
+          root_markers = { '.git' },
+        })
+
+        vim.lsp.enable('zap-lsp')
+      end
 
       vim.lsp.config('rust_analyzer', {
         checkOnSave = {
@@ -85,11 +100,6 @@ return {
       })
 
       vim.lsp.config('eslint', {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      vim.lsp.config('cssls', {
         capabilities = capabilities,
         on_attach = on_attach,
       })
@@ -112,14 +122,6 @@ return {
           },
         },
       })
-
-      vim.lsp.config('zap-lsp', {
-        cmd = { 'zap-lsp' },
-        filetypes = { 'zap' },
-        root_markers = { '.git' },
-      })
-
-      vim.lsp.enable('zap-lsp')
 
       vim.api.nvim_create_autocmd('FileType', {
         pattern = 'pascal',
@@ -193,7 +195,7 @@ return {
       lsp = {
         color = { enabled = false },
         on_attach = function(_, bufnr)
-          local bufopts = { noremap=true, silent=true, buffer=bufnr }
+          local bufopts = { noremap = true, silent = true, buffer = bufnr }
           vim.keymap.set('n', '<leader>rf', '<cmd>FlutterReload<CR>', bufopts)
           vim.keymap.set('n', '<leader>rh', '<cmd>FlutterRestart<CR>', bufopts)
         end,

@@ -1,3 +1,4 @@
+local util = require('util')
 local map = vim.keymap.set
 
 --------------- macro backslashes -------------------
@@ -123,7 +124,7 @@ local function open_floating_terminal(cmd)
     border = 'rounded',
   })
 
-  vim.fn.jobstart(cmd or vim.o.shell, { term = true })
+  vim.fn.jobstart(cmd or util.shell, { term = true })
   vim.cmd('startinsert')
 
   map('t', '<Esc>', function()

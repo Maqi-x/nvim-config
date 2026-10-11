@@ -40,6 +40,8 @@ vim.filetype.add({
     tasm = 'tasm',
     htpl = 'html',
     post = 'post',
+    nut = 'rsquirrel',
+    gnut = 'rsquirrel',
     b = 'b',
 
     yate = function(path, _)

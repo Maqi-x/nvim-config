@@ -29,6 +29,28 @@ autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
+local function is_source_keyvalue(buf)
+  local lines = vim.api.nvim_buf_get_lines(buf, 0, 10, false)
+  if #lines == 0 then return false end
+
+  for _, line in ipairs(lines) do
+    if line:match('^%s*[%w_]+%s*:') then
+      return false
+    end
+  end
+
+  local kv_pattern = '^%s*"([^"]+)"%s*"([^"]*)"'
+  local kv_block_pattern = '^%s*"([^"]+)"%s*{'
+
+  for _, line in ipairs(lines) do
+    if line:match(kv_pattern) or line:match(kv_block_pattern) then
+      return true
+    end
+  end
+
+  return false
+end
+
 vim.treesitter.language.register('markdown', 'post')
 vim.filetype.add({
   extension = {
@@ -51,6 +73,17 @@ vim.filetype.add({
       end
       return 'yate'
     end,
+  },
+  pattern = {
+    ['.*%.txt'] = {
+      function(_, bufnr)
+        if is_source_keyvalue(bufnr) then
+          return 'kv'
+        end
+        return nil
+      end,
+      priority = 100,
+    },
   },
 })
 

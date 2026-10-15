@@ -16,13 +16,22 @@ syn region squirrelString start=+'+ skip=+\\.'+ end=+'+
 
 """""""""""""""""""" Keywords
 syn keyword squirrelKeyword
-      \ break case catch class clone continue const default delete
-      \ else enum extends do for foreach function if in local null
-      \ return switch this throw try typeof while yield resume wait
-      \ base global struct enum thread expect asset ornull
+    \ break case catch class clone continue const default delete
+    \ else enum extends do for foreach function if in null return
+    \ switch this throw try typeof while yield resume wait base
+    \ global struct enum thread expect
+
+syn keyword squirrelDirective
+    \ globalize_all_functions
+    \ untyped
+
+syn keyword squirrelLocal
+    \ local
 
 """""""""""""""""""" Types
-syn keyword squirrelType entity vector int float string bool array table void var
+syn keyword squirrelType
+    \ entity vector int float string bool
+    \ array table void var asset ornull
 
 """""""""""""""""""" Literals
 syn keyword squirrelBoolean true false
@@ -59,6 +68,9 @@ hi def link squirrelTodo      Todo
 hi def link squirrelString    String
 
 hi def link squirrelKeyword   Keyword
+hi def link squirrelDirective PreProc
+hi def link squirrelLocal     Error
+
 hi def link squirrelType      Type
 hi def link squirrelBoolean   Boolean
 hi def link squirrelNull      Constant

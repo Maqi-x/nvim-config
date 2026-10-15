@@ -28,6 +28,14 @@ syn keyword squirrelDirective
 syn keyword squirrelLocal
     \ local
 
+"""""""""""""""""""" Preprocessor
+syn keyword squirrelClient contained CLIENT
+syn keyword squirrelServer contained SERVER
+syn keyword squirrelUI     contained UI
+
+syn region squirrelPreCond matchgroup=PreProc start="^\s*#\s*if\>" end="$" keepend contains=squirrelClient,squirrelServer,squirrelUI,squirrelOperator
+syn match  squirrelPreCond "^\s*#\s*endif\>"
+
 """""""""""""""""""" Types
 syn keyword squirrelType
     \ entity vector int float string bool
@@ -87,5 +95,11 @@ hi def link squirrelDot       Delimiter
 hi def link squirrelFunction  Function
 hi def link squirrelMethod    Function
 hi def link squirrelProperty  Identifier
+
+hi def link squirrelPreCond   PreProc
+
+hi squirrelClient gui=bold guifg=#98be65 cterm=bold ctermfg=10
+hi squirrelServer gui=bold guifg=#c678dd cterm=bold ctermfg=13
+hi squirrelUI     gui=bold guifg=#61afef cterm=bold ctermfg=14
 
 let b:current_syntax = "rsquirrel"

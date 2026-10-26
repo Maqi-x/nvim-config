@@ -1,7 +1,16 @@
 local M = {}
 
+M.hostname =
+  vim.uv.os_gethostname()
+
 M.windows =
   package.config:sub(1,1) == "\\"
+
+M.mainpc =
+  not M.windows and M.hostname == "maqix-pc"
+
+M.laptop =
+  not M.windows and M.hostname == "maqix-laptop"
 
 local NONE = {}
 

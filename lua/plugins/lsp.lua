@@ -15,10 +15,10 @@ return {
         'rust_analyzer',
         'lua_ls',
         'denols',
-        util.when(not util.windows, 'pyright'),
-        util.when(not util.windows, 'ts_ls'),
-        util.when(not util.windows, 'cssls'),
-        util.when(not util.windows, 'bashls'),
+        util.when(util.mainpc, 'pyright'),
+        util.when(util.mainpc, 'ts_ls'),
+        util.when(util.mainpc, 'cssls'),
+        util.when(util.mainpc, 'bashls'),
       },
     },
   },
@@ -55,7 +55,7 @@ return {
         },
       })
 
-      if not util.windows then
+      if util.mainpc then
         vim.lsp.config('bashls', {
           capabilities = capabilities,
           on_attach = on_attach,

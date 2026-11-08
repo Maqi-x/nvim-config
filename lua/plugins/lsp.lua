@@ -19,6 +19,7 @@ return {
         util.when(util.mainpc, 'ts_ls'),
         util.when(util.mainpc, 'cssls'),
         util.when(util.mainpc, 'bashls'),
+        util.when(util.mainpc, 'zls'),
       },
     },
   },
@@ -83,8 +84,17 @@ return {
           filetypes = { 'zap' },
           root_markers = { '.git' },
         })
-
         vim.lsp.enable('zap-lsp')
+
+        vim.lsp.config('zls', {
+          settings = {
+            zls = {
+              enable_snippets = true,
+              enable_style_formatting = true,
+            },
+          },
+        })
+        vim.lsp.enable('zls')
       end
 
       vim.lsp.config('rust_analyzer', {
